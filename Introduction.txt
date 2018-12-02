@@ -1,0 +1,183 @@
+Browser
+	HTML
+	CSS
+	Javascript
+	
+	
+.NET  - Converter
+Java - Converter
+Python - Converter
+
+
+Static HTML
+	<div>
+		<input type='button' value='Login' />
+	</div>
+	
+div input are called tags/elements
+type value are attributes of element input
+input is called inner element of div
+
+Dynamic HTML
+	var element = document.createElement('input');
+	element.setAttribute('type', 'button');
+	element.setAttribute('value', 'Login');
+	
+	var divElement = document.createElement('div');
+	divElement.appendChild(element);
+	
+
+var UIFramework = {
+	createElement: function(options){
+		var element = document.createElement('input');
+		element.setAttribute('type', 'button');
+		element.setAttribute('value', options.text);
+		return element;
+	}
+}
+
+var divElement = document.createElement('div');
+divElement.appendChild(UIFramework.createElement({ text: 'Login' }));
+divElement.appendChild(UIFramework.createElement({ text: 'Signup' }));
+
+
+React.createElement('div', 'Welcome to Home');
+React.createElement('button', 'Login')
+
+// Above approach works before babel
+
+// After Babel - JSX
+<div> Welcome to Home </div>
+<input type='button' value='Login' />
+
+JSX and HTML
+HTML - Pure HTML component
+JSX - element converts to React.createElement and then html component gets generated
+HTML - Not Compiled
+JSX - Compiled and all tags must be closed
+
+React => using babel plugin, JSX code is converted into old standard of react and that old code generates html components dynamically.
+
+Mobile Frameworks
+Sencha, Angular, Phonegap => HTML + JS + CSS => packed as apk or ipa => opened internally using brower => safari brower in apple, chrome in android 
+=> Hybrid Apps (HTML View)
+
+React Native => JS Bundle => packed as apk or ipa => When App is opened, JS is executed => 
+this js when executed in android => generates Android Components
+this js when executed in IOS => generates IOS components
+=> Hybrid Native Apps (Native View)
+
+
+Wednesday - Demo - run in ios and android
+
+Web
+	HTML
+	CSS
+	JS => Head - script is loaded first and then body gets loaded
+		  Body - body elements gets loaded first and then javascript executes
+		  
+SPA - Single Page Application
+	- Create empty div in body and inject all elements dynamically(using javascript)
+	- React, Angular, Sencha, VUE
+	
+React => JS library for user interfaces
+web interface => React + React DOM
+mobile interface => React + React Native
+vr interface => React + React VR
+
+Web Interface => React, React DOM
+	React => React.createElement or use JSX with babel plugin
+	ReactDOM => ReactDOM.render(what to render, where to render)
+	
+	
+<div id="app"> </div>
+
+<script> 
+	ReactDOM.render(React.createElement('button', 'Login'), document.getElementById('app'))
+</script>
+
+using Babel => React, ReactDOM, Babel
+<script type='text/babel'> 
+	ReactDOM.render(<input type='button' value='Login' />, document.getElementById('app'))
+</script>
+
+React 			vs React Native
+div 	  						View
+free text						Text
+h1 h2 h3 h4 h5 h6				Add styles to Text manually
+input type=button				Button
+intput type=text		
+
+var TestComponent = function(props){
+	return <div>{props.title}</div>;
+};
+
+var TestComponent = function(props) {
+	return <View> <Text>{props.title} </Text></View>;
+}
+
+
+
+
+		
+
+		
+
+
+
+
+
+	
+	
+		  
+
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
