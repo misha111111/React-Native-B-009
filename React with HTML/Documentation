@@ -1,0 +1,35 @@
+
+simple React Componet
+    var TestComponent = function(props){
+        return <div>{props.title}</div>;
+    };
+
+ES6 React Component 
+    => Create Simple ES6 class, add React.Component as parent and implement the render method.
+
+    class TestComponent extends React.Component {
+        render(){
+            return (
+                <div>{this.props.title}</div>
+            );
+        }
+    }
+
+function add(x, y){
+    return x + y;
+}
+add(10, '20') => 1020
+
+function add(x: number, y: number){
+    return x + y;
+}
+
+add(10, '20')
+
+
+React / React Native
+    ES6 
+
+Typescript => adding a type to ES6
+
+Types => PropTypes, Typescript, Flow

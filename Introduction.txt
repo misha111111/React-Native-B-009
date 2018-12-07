@@ -116,12 +116,295 @@ var TestComponent = function(props) {
 	return <View> <Text>{props.title} </Text></View>;
 }
 
+var neha = {
+	name: 'Neha Singh',
+	age: 30,
+	ccNumber: 123456
+}
 
-
-
+var prakash = {
+	name: 'Prakash Kumar',
+	age: 25,
+	ccNumber: 234566
+}
 		
+// Object Oriented Javascript
+	Security
+	Reducing the code
 
-		
+// Concepts
+	Class
+	Objects
+	Access Specifiers - private, public
+	Constructor - Passing values at the time of initialization
+	Inheritance - Accessing Parent class methods
+
+// Syntax
+var className = function(){
+	// private 
+	// global
+
+	// public
+	this.
+}
+
+var Demo = function(){
+	this.welcome = function(){
+		console.log('Welcome to Demo');
+	}
+}
+
+var obj = new Demo();
+obj.welcome();
+
+
+var Student = function(){
+	this.name = '';
+	this.age = '';
+	this.ccNumber ='';
+}
+
+var neha = new Student();
+var prakash = new Student();
+
+
+var Student2 = function(name, age, ccNumber){
+	this.name = name;
+	this.age = age;
+	this.ccNumber = ccNumber;
+}
+
+var neha = new Student2('Neha Singh', 30, 123456)
+var prakash = new Student2('Prakash', 25, 345678)
+
+var Student3 = function(name, age, ccNumber){
+	var ccNumber = ccNumber;
+
+	this.name = name;
+	this.age = age;
+
+	this.print = function(){
+		console.log(ccNumber.replace('456', 'XXX'));
+	}
+}
+var neha = new Student3('Neha Singh', 30, 123456)
+var prakash = new Student3('Prakash', 25, 345678)
+
+var Calculator = function(){
+	this.add = function(x, y){
+		return x + y;
+	}
+
+	this.sub = function(x, y){
+		x = x || 0;
+		y = y || 0;
+		return x - y;
+	}
+
+	this.mul = (x, y) => {
+		return x * y;
+	}
+
+	this.div = (x, y) => x / y;
+}
+var calc =  new Calculator();
+
+// prototypes - To inject methods into existing classes
+ --- Adv - to support old browsers by injecting methods into existing classes
+
+Calculator.prototype.print = () => console.log('Calculator Feature')
+
+Naming Conventions:
+camelCase => first letter is in lower case and higher case starts with new word
+	scientificCalculator
+	use case - functions, variables
+variableCase => first letter is in higher case and higher case starts with new word
+	scientificCalculator
+	use case - Class
+upper case => all characters are in upper case
+	STATES, COUNTRIES
+	use case - constants
+lower case => all characters are in lower case
+	states, x, y
+	use case - variables
+
+Similarities
+	Variable Field Property Member
+	Function Method API
+
+var Calculator = function(){
+
+	// private variable
+	var secret = 123456; 
+
+	// private function
+	var log = function(value){
+		console.log(value);
+	}
+
+	// global variable
+	pi = 3.14
+
+	// global function
+	print = function() {
+		console.log('Calculator')
+	}
+
+	// public variable
+	this.version = 1.0;
+
+	// add - public method
+	this.add = function(x, y){
+		return x + y;
+	}
+}
+
+
+if Person is class, age is Field
+if age is public => obj.age
+if age is private => obj.age is undefined
+if age is global => age 
+
+function test( name, age, city){
+
+}
+
+test('a', 20, 'hyd')
+
+test('', '', 'hyd')
+
+function test(options){
+
+
+}
+test({ city: 'hyd'})
+
+
+// Before ES6
+
+ES6 cant support private or global, it supports only public
+
+
+var Calculator = function(){
+	this.add = function(x, y){
+		return x + y;
+	}
+
+	this.sub = function(x, y){
+		x = x || 0;
+		y = y || 0;
+		return x - y;
+	}
+
+	this.mul = (x, y) => {
+		return x * y;
+	}
+
+	this.div = (x, y) => x / y;
+}
+
+// In ES6
+class Calculator {
+	add(x, y) {
+		return x + y;
+	}
+	sub(x, y){
+		x = x || 0;
+		y = y || 0;
+	}
+}
+
+function Person(options){
+	var name = options.name || '';
+	this.getName = () => name;
+	this.setName = (value) => name = value;
+}
+
+var neha = new Person({ name: 'Neha Singh'})
+
+class Person {
+	constructor(options){
+		this.name = options.value || '';
+	}
+	getName(){
+		return this.name;
+	}
+	setName(value){
+		this.name = value;
+	}
+}
+
+const pi = 3.14;
+
+class SavingsAccount {
+	getAccountInfo(){
+
+	}
+	getSavingsDetails(){
+
+	}
+}
+
+class CurrentAccount {
+	getAccountInfo(){
+
+	}
+}
+
+class Account {
+	getAccountInfo(){
+
+	}
+}
+
+class SavingsAccount extends Account {
+	getSavingsDetails(){
+
+	}
+}
+
+class CurrentAccount extends Account {
+}
+
+class Component {
+	constructor(props){
+		this.props = props;
+	}
+}
+class Person extends Component {
+	getName(){
+		return this.props.name;
+	}
+	getCity(){
+		return this.props.city;
+	}
+}
+var preethi = new Person({ name: 'Preethi', city: 'HYD' });
+preethi.getName();
+preethi.getCity();
+
+class Teacher extends Component{
+	getClass(){
+		return this.props.class;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
