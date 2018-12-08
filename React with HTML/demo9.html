@@ -1,0 +1,214 @@
+<html>
+
+<head>
+	<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+	<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+	<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+
+<body>
+	<div id="root">
+	</div>
+	<script type="text/babel">
+
+		// from static data in render api
+		class LoginScreen extends React.Component{
+			render() {
+				return <div>
+						{this.props.title}
+						<br/>
+						<ul>
+							<li> React</li>
+							<li> React Native</li>
+							<li> Javascript </li>
+						</ul>
+				    </div>;
+			}
+		};
+
+		// using for of
+		class LoginScreen2 extends React.Component{
+			render() {
+				var courses = [ 'React', 'React Native', 'Node', 'Javascript'];
+				var liElements = [];
+				for(var course of courses){
+					liElements.push(<li> {course}</li>);
+				}
+				return <div>
+						{this.props.title}
+						<br/>
+						<ul>
+							{liElements}
+						</ul>
+				    </div>;
+			}
+		};
+
+		// using map
+		class LoginScreen3 extends React.Component{
+			render() {
+				var courses = [ 'React', 'React Native', 'Node', 'Javascript'];
+				return <div>
+						{this.props.title}
+						<br/>
+						<ul>
+							{courses.map(course => <li> {course}</li>)}
+						</ul>
+				    </div>;
+			}
+		};
+
+		// Creating varaiable in constructor
+		class LoginScreen4 extends React.Component{
+			constructor(props){
+				super(props);
+				this.courses = [ 'React', 'React Native', 'Node', 'Javascript'];
+			}
+			render() {
+				return <div>
+						{this.props.title}
+						<br/>
+						<ul>
+							{this.courses.map(course => <li> {course}</li>)}
+						</ul>
+				    </div>;
+			}
+		};
+
+
+		// Loading courses on button click using state
+		class LoginScreen5 extends React.Component {
+			constructor(props){
+				super(props);
+				this.state = {
+					courses: []
+				}
+			}
+
+			onClick(){
+				this.setState({ courses:[ 'React', 'React Native', 'Node', 'Javascript'] });
+			}
+
+			render() {
+				return <div>
+						{this.props.title}
+						<br/>
+						<input type='button' value='Load' onClick={this.onClick.bind(this)}/>
+						<ul>
+							{this.state.courses.map(course => <li> {course}</li>)}
+						</ul>
+				    </div>;
+			}
+		};
+
+		const COURSES = [ 'React', 'React Native', 'Node', 'Javascript'];
+		// Search 
+		class LoginScreen6 extends React.Component {
+			constructor(props){
+				super(props);
+				this.state = {
+					courses: COURSES,
+					courses_clone: COURSES
+				}
+			}
+			onSearch(event){
+				var str = event.target.value;
+				var filteredItems = [];
+				for(var course of this.state.courses){
+					if(course.toLowerCase().indexOf(str.toLowerCase()) >= 0) {
+						filteredItems.push(course);
+					}
+				}
+				this.setState({ courses_clone: filteredItems});
+			}
+
+			render() {
+				return <div>
+						{this.props.title}
+						<br/>
+						<br/>
+						Search <input type='text' onChange={this.onSearch.bind(this)}/>
+						<br/>
+						<ul>
+							{this.state.courses_clone.map(course => <li> {course}</li>)}
+						</ul>
+				    </div>;
+			}
+		};
+
+		// Search and Reset Options
+		class LoginScreen7 extends React.Component {
+			constructor(props){
+				super(props);
+				this.state = {
+					courses: COURSES,
+					courses_clone: COURSES
+				}
+			}
+			onSearchBoxChange(event){
+				this.searchStr = event.target.value.toLowerCase();
+			}
+			onSearch(event){
+				var filteredItems = [];
+				for(var course of this.state.courses){
+					if(course.toLowerCase().indexOf(this.searchStr) >= 0) {
+						filteredItems.push(course);
+					}
+				}
+				this.setState({ courses_clone: filteredItems});
+			}
+
+			onReset(){
+				this.setState({ courses_clone: this.state.courses });
+			}
+
+			render() {
+				return <div>
+						{this.props.title}
+						<br/>
+						<br/>
+						<input type='text' onChange={this.onSearchBoxChange.bind(this)}/>
+						<input type='button' value='Search' onClick={this.onSearch.bind(this)}/> 
+						<input type='button' value='Reset' onClick={this.onReset.bind(this)}/>
+						<br/>
+						<ul>
+							{this.state.courses_clone.map(course => <li> {course}</li>)}
+						</ul>
+				    </div>;
+			}
+		};
+
+		// Search and Reset Options using Inline Functions and Filter API of Array
+		class LoginScreen8 extends React.Component {
+			constructor(props){
+				super(props);
+				this.state = {
+					courses: COURSES,
+					courses_clone: COURSES
+				}
+			}
+
+			render() {
+				return <div>
+						{this.props.title}
+						<br/>
+						<br/>
+						<input type='text' onChange={ event => this.searchStr = event.target.value }/>
+						<input type='button' value='Search' onClick={() => {
+							this.setState({ courses_clone: this.state.courses.filter(course => course.toLowerCase().indexOf(this.searchStr) >= 0)});
+						}}/> 
+						<input type='button' value='Reset' onClick={() => this.setState({ courses_clone: this.state.courses })}/>
+						<br/>
+						<ul>
+							{this.state.courses_clone.map(course => <li> {course}</li>)}
+						</ul>
+				    </div>;
+			}
+		};
+
+		
+		ReactDOM.render(<LoginScreen8 title="Welcome to Courses"/>, document.getElementById('root'));
+	</script>
+</body>
+
+</html>

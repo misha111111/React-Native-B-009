@@ -389,6 +389,97 @@ class Teacher extends Component{
 	}
 }
 
+React	
+	Stateless component 
+		function
+	Stateful component	
+		ES6 class 
+		Life Cycle Events
+		State level variables - When data changes in those variables, screen refreshes automatically
+
+Converting html to react component
+	Create React Component
+	Copy body tag inner elements to render method and make sure there is always one top tree node
+	Make Sure all tags are enclosed
+	Copy the styles as it is.
+
+var students = [ 'A', 'B', 'C'] 
+
+// Iterating Arrays
+
+// Approach 1
+for(var index = 0; index < students.length; index ++){
+	console.log(index);
+	var student = students[index];
+	console.log(student);
+}
+
+// Approach 2 - For in - Iterating using index
+for(var index in students){
+	console.log(index);
+	var student = students[index];
+	console.log(student);
+}
+
+// Approach 3 - For of - Iterating using item
+for(var student of students){
+	console.log(student);
+}
+
+// Assume Person is class, obj is instance/object, age is Field
+if age is variable => var age => scope is with in method
+if age is private => Not possible in ES6
+if age is global => Not possible in ES6 with in the class
+if age is props => this.prop.age => can Access in multiple methods and never try to update
+if age is public => this.age => can Access in multiple methods and can update
+if age is state level => this.state.age => 
+				can Access in multiple methods, can update, screen updates automatically, 
+				Unidirectional Binding
+
+
+// State level variables
+using created inside constructor
+	A B C D E
+	constructor(props){
+		super(props);
+		this.state = {
+			a: 1,
+			b: 2,
+			c: 3,
+			d: 4,
+			e: 5
+		}
+	}
+
+this.setState({ a: 5 }) here a value changes from 1 to 5, as it is changes, screen updates automatically
+this.setState({ a: 1 }) here a value is not changes, screen doesnt update
+
+Events => Capturable things
+For all methods which are configured for events, method receives one input param which is called Synthetic Event
+
+// getting control reference from event object
+	React - eevent.target
+	React Native - event.nativeelement
+
+	textbox value - event.target.value
+	checkbox value - event.target.checked
+
+
+.bind is added to event in order to pass the scope
+
+Fitlers - When ever we are applying fitlers for array, dont manipulate original array
+
+
+
+
+
+
+	
+
+
+
+
+
 
 
 
