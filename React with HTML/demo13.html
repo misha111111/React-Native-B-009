@@ -1,0 +1,30 @@
+<html>
+
+<head>
+	<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+	<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+	<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+
+<body>
+	<div id="root">
+	</div>
+	<script type="text/babel">
+
+		const Student = ({ name, age, city, state }) => <div>Welcome to Demo {name}, {age}, {city}, {state}</div>;
+
+		class TestComponent extends React.Component{
+			render() {
+				return <div>
+						Header: 
+						<Student {...this.props} city="Visak"/>
+						Footer@
+				    </div>;
+			}
+		};
+		
+		ReactDOM.render(<TestComponent name="Neha Singh" age={20} city="Hyderabad" state="Telanagana"/>, document.getElementById('root'));
+	</script>
+</body>
+
+</html>

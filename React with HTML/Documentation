@@ -33,3 +33,55 @@ React / React Native
 Typescript => adding a type to ES6
 
 Types => PropTypes, Typescript, Flow
+
+this.props => Items that component receives
+this.props.age => Component is receiving age as an attribute
+this.props.children => Inner Items that component receives
+
+
+<Test age="10">
+    <table>
+    <tr>
+</Test>
+
+var obj = { a: 1, b: 2 }
+
+//clone
+var obj2 = {};
+for(var key in obj){
+    obj2[key] = obj[key];
+}
+
+// ES6
+var obj3 = { ...obj }
+
+var obj1 = { a: 1, b: 2 }
+var obj2 = { b: 3, c: 4 }
+var obj3 = { c: 6, d: 7, e: 8 }
+
+var obj4 = { ...obj1, ...obj2, ...obj3 }
+
+var obj5 = { ...obj1, ...obj2, ...obj3, c: 5, f: 10 }
+
+
+var obj = { name: 'Arjun', age: 10, father: 'Prakash', fatherAge: 30 }
+
+// variables created are father, fatherAge, arjun
+var { father, fatherAge, ...arjun } = obj;
+
+
+// here FAge variable is created and not fatherAge -- renaming variable
+var { father, fatherAge: FAge, ...arjun } = obj;
+
+// Cloning Arrays
+var students = [ 'Preethi', 'Pranav', 'Deepthi' ]
+var students2 = [ ... students]
+var students3 = [ ... students, 'Venkat', 'Deesha']
+
+
+https://babeljs.io/docs/en/learn
+
+
+
+
+

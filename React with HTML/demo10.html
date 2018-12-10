@@ -1,0 +1,186 @@
+<html>
+
+<head>
+	<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+	<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+	<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+	<style>
+		.table {
+			border: 1px solid red;
+		}
+		.customCSS {
+			border: 5px solid black;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="root">
+	</div>
+	<script type="text/babel">
+		class TestComponent extends React.Component{
+			render() {
+				var students = [
+					{ name: 'Arjun', age: '20', city: 'HYD' },
+					{ name: 'Deepthi', age: '21', city: 'HYD' },
+					{ name: 'Venkat', age: '23', city: 'HYD' },
+					{ name: 'Ramya', age: '21', city: 'HYD' },
+					{ name: 'Vinay', age: '35' }
+				]
+				return <div>
+						{this.props.title}
+						<table>
+							<thead>
+								<td>Name</td>
+								<td>Age</td>
+								<td>City</td>
+							</thead>
+							<tbody>
+								{students.map(student => <tr>
+									<td>{student.name}</td>
+									<td>{student.age}</td>
+									<td>{student.city}</td>
+								</tr>)}
+							</tbody>
+						</table>
+				    </div>;
+			}
+		};
+
+		class TestComponent2 extends React.Component{
+			constructor(props){
+				super(props);
+				this.state = {
+					deptColumns: [
+						{ key: 'name', display: 'Name'},
+						{ key: 'students', display: 'Students Count'}
+					],
+					studentColumns: [
+						{ key: 'name', display: 'Name'},
+						{ key: 'age', display: 'Age'},
+						{ key: 'city', display: 'City'}
+					],
+					departments: [
+						{ name: 'ECE', students: 100 },
+						{ name: 'CSE', students: 150 },
+						{ name: 'IT', students: 120 }
+					],
+					students: [
+						{ name: 'Arjun', age: '20', city: 'HYD' },
+						{ name: 'Deepthi', age: '21', city: 'HYD' },
+						{ name: 'Venkat', age: '23', city: 'HYD' },
+						{ name: 'Ramya', age: '21', city: 'HYD' },
+						{ name: 'Vinay', age: '35' }
+					]
+				}
+			}
+			render() {
+				return <div>
+						{this.props.title}
+						<br/>
+						<table>
+							<thead>
+							    {this.state.deptColumns.map(col => <td>{col.display}</td>)}
+							</thead>
+							<tbody>
+								{this.state.departments.map(dept => <tr>
+									<td>{dept.name}</td>
+									<td>{dept.students}</td>
+								</tr>)}
+							</tbody>
+						</table>
+						<br/>
+						<table>
+							<thead>
+								{this.state.studentColumns.map(col => <td>{col.display}</td>)}
+							</thead>
+							<tbody>
+								{this.state.students.map(student => <tr>
+									<td>{student.name}</td>
+									<td>{student.age}</td>
+									<td>{student.city}</td>
+								</tr>)}
+							</tbody>
+						</table>
+				    </div>;
+			}
+		};
+
+		class GenericTable extends React.Component {
+			render(){
+				const { data, columns } = this.props;
+				return (
+					<table>
+						<thead>
+							{columns.map(col => <td>{col.display}</td>)}
+						</thead>
+						<tbody>
+							{data.map(student => <tr>
+								{columns.map(col => <td>{student[col.key]}</td>)}
+							</tr>)}
+						</tbody>
+					</table>
+				);
+			}
+		}
+
+		// stateless Component
+		const GenericTable2 = ({ columns, data, class: className }) => <div>
+			Search: <input type='text' />
+				<br />
+				<table class={className || "table"}>
+					<thead>
+						{columns.map(col => <td>{col.display}</td>)}
+					</thead>
+					<tbody>
+						{data.map(student => <tr>
+							{columns.map(col => <td>{student[col.key]}</td>)}
+						</tr>)}
+					</tbody>
+				</table>
+			</div>
+
+		class TestComponent3 extends React.Component{
+			constructor(props){
+				super(props);
+				this.state = {
+					deptColumns: [
+						{ key: 'name', display: 'Name'},
+						{ key: 'students', display: 'Students Count'}
+					],
+					studentColumns: [
+						{ key: 'name', display: 'Name'},
+						{ key: 'age', display: 'Age'},
+						{ key: 'city', display: 'City'}
+					],
+					departments: [
+						{ name: 'ECE', students: 100 },
+						{ name: 'CSE', students: 150 },
+						{ name: 'IT', students: 120 }
+					],
+					students: [
+						{ name: 'Arjun', age: '20', city: 'HYD' },
+						{ name: 'Deepthi', age: '21', city: 'HYD' },
+						{ name: 'Venkat', age: '23', city: 'HYD' },
+						{ name: 'Ramya', age: '21', city: 'HYD' },
+						{ name: 'Vinay', age: '35' }
+					]
+				}
+			}
+			render() {
+				const { departments, deptColumns, students, studentColumns } = this.state;
+				return <div>
+						{this.props.title}
+						<br/>
+						<GenericTable2 data={departments} columns ={deptColumns}  />
+						<br/>
+						<GenericTable2 data={students} columns={studentColumns} class="customCSS"/>
+				    </div>;
+			}
+		};
+		
+		ReactDOM.render(<TestComponent3 title="Welcome to Students"/>, document.getElementById('root'));
+	</script>
+</body>
+
+</html>

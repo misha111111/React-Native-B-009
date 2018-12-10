@@ -1,0 +1,48 @@
+<html>
+
+<head>
+	<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+	<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+	<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+
+<body>
+	<div id="root">
+	</div>
+	<script type="text/babel">
+
+		const Header = () => <div> Header: Logo 2 </div>;
+		const SideBar = () => <div> Side Bar 1 </div>;
+		const SideBar2 = () => <div> Side Bar 2 </div>;
+		const Footer = () => <div> Footer: Copyright @2018 </div>
+
+		const MasterPage = (props) => <div>
+						<Header />
+						<SideBar />
+						{props.children}
+						<SideBar2 />
+						<Footer />
+				    </div>
+
+
+		class LoginScreen extends React.Component{
+			render() {
+				return <MasterPage>
+						Welcome to Login Screen
+					</MasterPage>
+			}
+		};
+
+		class HomeScreen extends React.Component{
+			render() {
+				return  <MasterPage>
+						Welcome to Dashboard
+					</MasterPage>
+			}
+		};
+		
+		ReactDOM.render(<HomeScreen/>, document.getElementById('root'));
+	</script>
+</body>
+
+</html>
