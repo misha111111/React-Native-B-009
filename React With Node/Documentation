@@ -1,0 +1,112 @@
+BoilerPlate - Common Code
+
+BoilerPlate Generator - Common Code Generator
+    Its a global script that generates basic project
+
+
+Create-React-App this generates basic react application
+react-native this generates basic react native application
+create-react-native-app this generates react native application which is integrated with Expo
+
+Angular-cli  this generates basic angular Code/project
+ionic-cli this generates baisc ionic project
+
+
+Create-React-App => generates basic React Project which has modules
+    React
+    ReactDOM
+    Babel
+    Webpack
+    ...
+
+npm => node package manager
+    npm install moduleName - installing modules at project level
+    npm install -g moduleName => installing modules globally
+    npm install moduleName --save => install + add module to package.json
+    npm install moduleName --save-dev => install + add module to devDependency section of package.json
+    npm install moduleName@version => install module of that version
+
+npm install -g create-react-app
+npm install react-native-cli
+npm install -g create-react-native-app
+npm install -g angular-cli
+
+Node    
+    ES5
+        export
+        require
+    ES6
+        export - import with same name
+        export default - can be imported by any reference name
+        import
+
+
+https://reactjs.org/docs/create-a-new-react-app.html
+
+
+A
+    B          C
+      D    E F
+       G H  I
+
+G H D I E F B C A
+
+
+Creating the project
+    create-react-app demo
+        Interally Creates Node Project
+        Adds Modules like React ReactDOM React-Scripts
+        Creates html page with empty root
+        Creates js files for injecting components into root element
+
+Create-React-App - default React Project
+mern.io - Project with MongoDB, Express, React, Node
+mean.io - Project with MongoDB, Express, Angular, Node
+hospital mern - Project with default hospital modules
+school mern - Project with default school modules
+
+Project - demo - Project Structure
+    node_modules - default folder for node modules
+    public - default html 
+    src - javascript files - index.js
+
+Routing - Navigation between pages
+    module - react-router-dom
+
+npm install react-router-dom --save
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
