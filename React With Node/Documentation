@@ -75,6 +75,34 @@ Routing - Navigation between pages
 
 npm install react-router-dom --save
 
+Add BrowserRouter as parent to all our components 
+BrowserRouter uses history api internally. usually BrowserRouter is a wrapper above history api
+
+history api
+    history.push('home')
+    history.goBack()
+    history.push('/restaurants')
+    history.push({
+        pathname: 'home',
+        params: { username: 'Karthik', city: 'Delhi'}
+    });
+
+When we add BrowserRouter as parent, all components receives certain inputs. 
+    this.props.history
+    this.props.location
+
+Assume we are creating new framework
+    Webpack, history, Babel....
+    create react-test-Scripts and add above items as dependency
+
+A => B => C => D => E
+
+sessionStorage => cleared automatically when brower is closed
+localStorage => must be cleared manually
+cookies => 20 mins
+
+
+
 
 
 
