@@ -101,6 +101,35 @@ sessionStorage => cleared automatically when brower is closed
 localStorage => must be cleared manually
 cookies => 20 mins
 
+Project Structure
+    public - html
+             resources - images, css, static javascript files
+    src - actual react javascript files
+        containers/views/screens
+        components - reusable
+        assets - resources like images, fonts, video, audio
+            images
+            fonts
+        contansts - for some sort of fixed configuration
+        data - for static data
+        routes - managing all the routes
+
+Converting HTML to React Project
+    Create a project
+    Add react-router-dom
+    Add BrowserRouter in index.js as parent element to App.
+    Add resources to public folder and link it in index.html
+    Add MasterPage
+
+Pending Items in React
+    Third party grid/table components
+    How to choose modules from open market
+
+React Native
+    
+
+
+
 
 
 
