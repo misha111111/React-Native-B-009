@@ -1,0 +1,11 @@
+1. react-native-cli
+2. create-react-native-app
+3. snapit
+
+1. react-native-cli - Basic Template Generator
+    npm install -g react-native-cli 
+
+Project - demo
+    react-native init projectname
+    react-native init demo
+    
