@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import CarouselScreen from '../src/containers/carousel';
+import TableScreen from '../src/containers/table';
+import MaterialAppBarScreen from '../src/containers/materialdemo';
 
 import { Route, Switch } from 'react-router-dom'; 
 
@@ -53,6 +56,9 @@ class App extends Component {
         <Route path='/' exact component={Login} />
         <Route path='/home' component={Home} />
         <Route path='/contact' component={ContactUs} />
+        <Route path='/carousel' component={CarouselScreen} />
+        <Route path='/table' component={TableScreen} />
+        <Route path='/matAppBar' component={MaterialAppBarScreen} />
         <Route path='*' component={UnImplemented} />
       </Switch>
     );
