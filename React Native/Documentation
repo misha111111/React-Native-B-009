@@ -9,3 +9,41 @@ Project - demo
     react-native init projectname
     react-native init demo
     
+MAC
+    Command + M in android emulator for options
+    Command + D in Ios emulator for options
+
+React native
+    Does it converts all js files into Native => No
+
+
+Android/IOS 
+    => Basic View is created from Android/IOS Code
+    => React Native Bridge is created internally and through that bridge,
+     js code will trigger and generate Native View.
+
+
+public class MainActivity extends FragmentActivity/BaseActivity 
+public class MainActivity extends ReactActivity
+
+
+https://facebook.github.io/react-native/
+
+React
+    styles - 
+        using class <div class='welcomeDiv' />
+        using inline styles <div style={{ backgroundColor: 'black', width: 100 }}
+
+React Native 
+    styles -
+        using importes ones  <View style={styles.container}>
+        using inline styles <View style={{ backgroundColor: 'black' }}
+
+var isShowingText = this.state.isShowingText;
+this.setState({ isShowingText: !isShowingText });
+
+this.setState({ isShowingText: !this.state.isShowingText });
+
+this.setState(previousState => (
+        { isShowingText: !previousState.isShowingText }
+      ))
