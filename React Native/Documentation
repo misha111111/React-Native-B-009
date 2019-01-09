@@ -46,4 +46,71 @@ this.setState({ isShowingText: !this.state.isShowingText });
 
 this.setState(previousState => (
         { isShowingText: !previousState.isShowingText }
-      ))
+      ));
+
+Navigations
+Google Maps
+NativeBase
+
+Navigations
+    https://reactnavigation.org/
+
+    yarn add react-navigation@2.0
+
+Before 2 months
+    createStackNavigator - Stack Panel 
+    createTabNavigator - Tab Panel
+
+    createTabNavigator(routes, routeOptions);
+
+    // Tabs - Contacts, Calls, Status
+    const routes = {
+        contact: {
+            screen: ContactScreen
+        },
+        calls: {
+            screen: CallScreen
+        },
+        status: {
+            screen: StatusScreen
+        }
+    }
+    createTabNavigator(routes)
+
+    StackPanel => LoginScreen, HomeScreen
+
+    const routes = {
+        logout: {
+            screen: LogoutScreen
+        } 
+        login: {
+            screen: LoginScreen
+        },
+        home: {
+            screen: HomeScreen
+        }
+    }
+
+    const routeOptions = {
+        intialRouteName: 'login'
+    }
+    createStackNavigator(routes, routeOptions)
+
+    this.props.history.push('/home');
+    this.props.navigator.navigate('home')
+
+Dependency/Module
+    js only
+    Native Android only
+    Native IOS only
+    Both Android and IOS
+
+Android 10.0 => PlayStore View
+React Native PlayStore View => wrapper for PlayStore View
+Ingenico Gateway => Native Android
+ReactNative-Ingenico-Gateway => wrapper around Native Module
+
+https://snack.expo.io/ - way to create projects online and can be viewed in mobile directly
+
+git - https://github.com/mkrishna2025/JSHyderabad-ReactTraining
+project - https://github.com/mkrishna2025/JSHyderabad-ReactTraining/tree/master/React%20Native/project
