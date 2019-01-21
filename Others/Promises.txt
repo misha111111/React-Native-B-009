@@ -1,0 +1,158 @@
+Promises in Javascript
+	
+Javascript	
+	Task1
+	2
+	3
+	4 - 1hour - DepositAmout
+	5 - 2hours - CollectAndDepositAmount
+	6
+	7
+	
+	
+4 - DepositAmout - TakeHelp of my friend - Promise - Success, Failure
+
+Asnchronous - A Process which runs in parallel to main process
+
+Promise - Its a one of the way to deal with Asnchronous operations
+	- it has 2 outcomes - success or failure
+	
+Syntax: => Promise.then(successCallBack).catch(failureCallBack)	
+
+Ex: TakeHelp({
+		name: 'XYZ',
+		task: 'Collecting Money',
+		amt: 10000
+	}).then(() => alert('Money is collected'))
+	.catch(() => alert('Task Failed'))
+	
+	ConnectToBLE({ pair: ''})
+		.then(() => // start trasnfering of files)
+		.catch(() => alert('Connection Failed'));
+		
+		
+	new Promise( (resolve, reject) => {
+		try {
+			/// logic - var result = ...
+			resolve(result);
+		} 
+		catch(error) {
+			reject(error);
+		}
+	});
+	
+	// connectToXBox
+	var connectToXBox = (options) => {
+		return new Promise( (resolve, reject) => {
+		try {
+			/// logic - var result = ... open the ports, connect it
+			resolve(result);
+		} 
+		catch(error) {
+			reject(error);
+		}
+	});
+	}
+	
+	connectToXBox({ 
+		id: 'xyz'
+	}).then(response => {
+		// start playing
+	}).catch(error => {
+		// display error in screen
+	});
+	
+// subtasks with in the task - CollectAndDepositAmount
+	takeHelp({})
+		.then(callback1)
+		.then(callback3)
+		.catch(callback2)
+		
+1. Order Accept
+2. Order Ready
+3. Order Pickup
+4. Order Deliver
+
+orderFood({
+	restaurant: 'Paradise',
+	item: 'Biriyani'
+}).then(response => {
+	this.setState({ message: 'Order Accepted'})
+}).then(response => {
+	this.setState({ message: 'Order Ready'})
+}).then(response => {
+	this.setState({ message: 'Order Pickup'})
+}).then(response => {
+	this.setState({ message: 'Order Deliver'})
+}).catch(error => {
+	this.setState({ message: 'Order Failed'})
+});
+		
+	
+	// Backend Call -- http://test.com/getStudents
+	fetch(url, options).then(callback1).catch(callback2)
+	
+	fetch('http://test.com/getStudents')
+		.then(response => return resolve.json())
+		.then(responseJson => {})
+		.catch(error => {})
+	
+var formData = new FormData();
+formData.append('username', this.username);
+formData.append('password', this.password);
+
+fetch('http://trainingkit.azurewebsites.net/api/Users/CheckUserExists',{
+  method:'POST',
+  body: formData
+}).then(response => {
+	return response.json();
+})
+.then(response => {
+  if(response.data){
+	swal("Alert","Login Success");
+	this.props.history.push('home');
+  } else {
+	swal("Alert", 'Invalid Credentials', "error");
+  }
+})
+.catch(error => {
+  alert(error);
+});
+
+axios.get('http://test.com/getStudents')
+		.then(responseJson => {})
+		.catch(error => {})
+		
+axios.post('http://trainingkit.azurewebsites.net/api/Users/CheckUserExists',{
+  username: 'test', password: '123'
+})
+.then(response => {
+  if(response.data){
+	swal("Alert","Login Success");
+	this.props.history.push('home');
+  } else {
+	swal("Alert", 'Invalid Credentials', "error");
+  }
+})
+.catch(error => {
+  alert(error);
+});
+	
+	try {
+			// await
+			var responseJson = await axios.get('http://test.com/getStudents');
+			
+			var response = await axios.post('http://trainingkit.azurewebsites.net/api/Users/CheckUserExists',{
+		  username: 'test', password: '123'
+		});
+	} catch(error){
+	}
+
+Asnchronous Opertions - Promise - Making The Backend Call - Fetch/Axios 
+	
+
+
+
+	
+
+
