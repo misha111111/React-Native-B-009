@@ -1,0 +1,169 @@
+Stateless - no life cycle
+StateFull - life cycle 
+
+class Test extends React.Component {
+	constructor(props){
+	
+	}
+}
+
+load 0 restaurants
+once screen is loaded with 0 restaurants, make backend call to load actual restaurants, 
+
+
+Initialization - Constructor - Setting Default Values
+componentWillMount - Subscriptions, Connecting to hardware like bluetooth
+Render - Renders actual View
+ComponentDidMount - Making the backend calls
+componentWillUnmount - DeSubscriptions, Disconnecting to hardware
+
+// 99% we dont use it projects unless it is required to change original behaviour of refreshing the screen on state update
+shouldComponentUpdate(props, state) {
+	// state - a b c d e 
+	
+	if(state.a != this.state.a){
+		return true; // render triggers
+	} else {
+		return false; // render doesnt trigger
+	}
+}
+
+React - Jquery - Applying UX effects to UI controls
+Simple Scenario -
+	Button - Apply colors to Button
+
+	componentDidMount(){
+		$('#login').css('color', 'red');
+	}
+	render() {
+		<div><input id='login' type='button' value='Login' /></div>
+	}
+
+Complex Scenario - Apply Special Effects to Table - Paging, Sorting, Filters - Jquery DataTables
+	
+	constructor(props){
+		super(props);
+		this.state = {
+			students: [],
+			error: ''
+		}
+	}
+	applyJquery(){
+		 var dataTable = $("#example").DataTable({
+			paging: false,
+			ordering: true,
+			columnDefs: [{
+			orderable: false,
+			targets: "no-sort"
+			}],
+			info: false,
+			mark: true
+		});
+		$("#filterbox").keyup(function() {
+		  dataTable.search(this.value).draw();
+		});
+	}
+	componentDidMount() {
+		Axios.get('http://test.com/getStudents')
+			.then(response => {
+				this.setState({ students: response.data }, this.applyJquery)
+			}). catch(error => {
+				this.setState({ error: error });
+			})
+	}
+	render(){
+		<table id='example'><thead><tbody>{this.state.students.map(row => <tr>.... </tr>)}
+	}
+	
+-- Setting default Values to component
+
+// with out default values
+	constructor(props){
+		super(props);
+		this.state = {
+			username: '',
+			password: ''
+		}
+	}
+
+	render() {
+		return (
+			<div>
+				<input type='text' onChange={event => this.state.username = event.target.value}/>
+				<input type='text' onChange={event => this.state.password = event.target.value}/>
+			</div>
+		);
+	}
+	
+// with default values
+	constructor(props){
+		super(props);
+		this.state = {
+			username: 'Arjun',
+			password: '123456'
+		}
+	}
+
+	render() {
+		return (
+			<div>
+				<input type='text' value={this.state.username} onChange={event => this.setState({ username: event.target.value}) />
+				<input type='text' value={this.state.password} onChange={event => this.setState({ password: event.target.value })}/>
+			</div>
+		);
+	}
+ 
+// Real Time Scenario 
+	Loading values in component when component is rendered - When Form is used for inserting/updating
+	
+	//localhost/student/-1 for new
+	//localhost/student/1 for edit
+	
+	// Form supporting both insert and update based on URL
+	constructor(props){
+		super(props);
+		this.state = {
+			username: '',
+			password: ''
+		}
+	}
+	getStudentId(){
+		return parseInt(this.props.location.pathname.replace('/student/', ''));
+    }
+  
+	componentDidMount(){
+		var studentId = this.getStudentId();
+		if(studentId > 0){
+			axios.get('test.com/loadUser/'+ studentId).
+				then(response => {
+					const { username, password } = response.data;
+					this.setState({
+						username: username,
+						password: password
+					})
+				});
+		}
+	}
+
+	render() {
+		return (
+			<div>
+				<input type='text' value={this.state.username} onChange={event => this.setState({ username: event.target.value}) />
+				<input type='text' value={this.state.password} onChange={event => this.setState({ password: event.target.value })}/>
+			</div>
+		);
+	}
+	
+Standards
+	componentDidUpdate - Dont use componentDidMount update
+	componentWillMount - Dont call backend API's
+	componentWillMount - Dont call setState method
+	Use lower case and '-' symbol for folders/files
+		home, login, ui-components
+	
+Pending
+	componentWillReceiveProps
+	PureComponent
+	RN - Multiple styles
+	
+	
